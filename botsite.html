@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatBot Pro - Tu asistente conversacional para negocios</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- Topbar -->
+    <nav class="topbar">
+      <div class="container">
+        <div class="logo">ChatBot Pro</div>
+        <ul class="nav-links">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#features">Características</a></li>
+          <li><a href="#how">Cómo Funciona</a></li>
+          <li><a href="#pricing">Planes</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <a href="#demo" class="cta-button">Probar Demo</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Conectá con tus clientes de forma automática y efectiva</h1>
+        <p>
+          ChatBot Pro es un asistente virtual impulsado por inteligencia artificial que se integra fácilmente en cualquier sitio web. 
+          Responde consultas, comparte información sobre tu negocio y guía a tus visitantes, todo sin intervención humana.
+        </p>
+        <a href="#demo" style="display: none;" class="cta">Agregalo gratis</a>
+
+        <!-- Bot Mockup -->
+        <div class="bot-demo">
+          <div class="bot-mockup">
+            <!-- Header -->
+            <div class="chat-header">
+              <div class="chat-title">
+                <div class="status-dot"></div>
+                ChatBot Pro
+              </div>
+              <div class="chat-buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
+              </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="chat-window">
+              <div class="chat-bubble user hidden" id="msg1">
+                <div class="text">Hola! 👋</div>
+                <div class="avatar user-avatar">🧑</div>
+              </div>
+
+              <div class="chat-bubble bot hidden" id="msg2">
+                <div class="avatar bot-avatar">🤖</div>
+                <div class="text align-start">¡Hola! Soy el asistente virtual de tu empresa.</div>
+              </div>
+
+              <div class="chat-bubble bot typing hidden" id="msg3">
+                <div class="avatar bot-avatar">🤖</div>
+                <div class="text">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+
+              <div class="chat-bubble bot hidden" id="msg4">
+                <div class="avatar bot-avatar">🤖</div>
+                <div class="text align-start">¿En qué puedo ayudarte hoy?</div>
+              </div>
+
+              <div class="chat-bubble user hidden" id="msg5">
+                <div class="text align-start">Quiero saber más sobre sus servicios</div>
+                <div class="avatar user-avatar">🧑</div>
+              </div>
+            </div>
+
+            <!-- Footer (fake input) -->
+            <div class="chat-footer">
+              <input
+                type="text"
+                class="chat-input"
+                placeholder="Escribe un mensaje..."
+                disabled
+              />
+              <button class="chat-send" disabled>➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Características principales</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <h3>Instalación instantánea</h3>
+            <p>
+              Integrá ChatBot Pro en tu sitio web con una sola línea de código. 
+              Sin configuraciones complicadas ni desarrollos adicionales.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-brain"></i>
+            <h3>Impulsado por IA</h3>
+            <p>
+              Basado en Dialogflow y Firebase, entiende y responde de forma natural a las preguntas de tus clientes.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-sliders-h"></i>
+            <h3>100% configurable</h3>
+            <p>
+              Personalizá respuestas, mensajes de bienvenida y apariencia según tu negocio.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Información útil</h3>
+            <p>
+              Proporcioná automáticamente links de contacto, ubicación, horarios e información de tu empresa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how" class="how-it-works">
+      <div class="container">
+        <h2>Cómo funciona</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Solicitá tu bot</h3>
+            <p>Nos compartís los datos de tu negocio y configuramos tu asistente.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Agregá el código</h3>
+            <p>Insertá una sola línea de código en tu sitio web.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Tu bot está en línea</h3>
+            <p>El botón de chat aparecerá automáticamente saludando a tus visitantes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Planes de alquiler</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="plan-name">Demo</div>
+            <div class="price">$0<span>/mes</span></div>
+            <ul class="pricing-features">
+              <li>Prueba gratuita</li>
+              <li>Válido por 1 mes</li>
+              <li>Configuración básica</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Solicitar Demo</a>
+          </div>
+          <div class="pricing-card popular">
+            <div class="plan-name">Negocios</div>
+            <div class="price">$37000<span>/mes</span></div>
+            <ul class="pricing-features">
+              <li>ChatBot personalizado</li>
+              <li>Mensajes ilimitados</li>
+              <li>Respuestas configurables</li>
+              <li>Estadísticas básicas</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Elegir Plan</a>
+          </div>
+          <div class="pricing-card">
+            <div class="plan-name">Empresas</div>
+            <div class="price">$75000<span>/mes</span></div>
+            <ul class="pricing-features">
+              <li>Integración avanzada</li>
+              <li>Soporte prioritario</li>
+              <li>Entrenamiento personalizado</li>
+              <li>Acceso a base de datos Firebase</li>
+            </ul>
+            <a href="#contact" class="pricing-cta">Contactar Ventas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contactanos</h2>
+        <p>Solicitá tu chatbot o pedí una demo personalizada.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>info@chatbotpro.com</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h3>Teléfono</h3>
+            <p>+54 11 5555-5555</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Dirección</h3>
+            <p>Buenos Aires, Argentina</p>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#home">Inicio</a>
+          <a href="#features">Características</a>
+          <a href="#pricing">Planes</a>
+          <a href="#contact">Contacto</a>
+        </div>
+        <p>&copy; 2025 ChatBot Pro. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button id="scrollToTopBtn" title="Volver arriba">↑</button>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
