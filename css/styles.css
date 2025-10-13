@@ -24,7 +24,6 @@ ul {
 /* ==============================
    SCROLL BUTTON
    ============================== */
-
 /* Scroll suave en todo el sitio */
 html {
   scroll-behavior: smooth;
@@ -592,6 +591,36 @@ html {
 }
 .submit-btn:hover {
   background-color: #0056b3;
+}
+
+.form-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #333;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.form-notification.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-notification.success {
+  background-color: #4caf50;
+}
+
+.form-notification.error {
+  background-color: #e53935;
 }
 
 /* ==============================

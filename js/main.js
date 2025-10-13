@@ -55,17 +55,49 @@ document.getElementById("scrollToTopBtn").addEventListener("click", () => {
 });
 
 const form = document.querySelector('.contact-form');
+const submitBtn = form.querySelector('.submit-btn');
+
+// Crear contenedor de notificación
+const notification = document.createElement('div');
+notification.classList.add('form-notification');
+document.body.appendChild(notification);
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const response = await fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { 'Accept': 'application/json' }
-  });
-  if (response.ok) {
-    alert('Gracias por tu mensaje! Te responderé pronto.');
-    form.reset();
-  } else {
-    alert('Hubo un error, intenta nuevamente.');
+
+  // Bloquear botón y mostrar estado de envío
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showNotification('✅ ¡Gracias por tu mensaje! Te responderé pronto.', 'success');
+      form.reset();
+    } else {
+      showNotification('❌ Hubo un error al enviar el mensaje. Intenta nuevamente.', 'error');
+    }
+  } catch (error) {
+    showNotification('⚠️ Error de conexión. Intenta más tarde.', 'error');
+  } finally {
+    // Restaurar botón
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
   }
 });
+
+// Función para mostrar notificaciones
+function showNotification(message, type) {
+  notification.textContent = message;
+  notification.className = `form-notification ${type}`;
+  notification.classList.add('visible');
+
+  setTimeout(() => {
+    notification.classList.remove('visible');
+  }, 4000);
+}
