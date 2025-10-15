@@ -101,3 +101,12 @@ function showNotification(message, type) {
     notification.classList.remove('visible');
   }, 4000);
 }
+
+// Función para abrir el modal DEMO
+const openBtn = document.getElementById('open-demo');
+const modal = document.getElementById('bot-modal');
+const closeBtn = modal.querySelector('.close-modal');
+
+openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+
