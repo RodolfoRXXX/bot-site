@@ -99,7 +99,7 @@ html {
   background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
   text-align: center;
-  padding: 120px 0 100px;
+  padding: 100px 0 100px;
 }
 .hero .container {
   max-width: 1200px;
@@ -650,6 +650,9 @@ html {
   }
   .nav-links {
     gap: 1rem;
+  }
+  .hero {
+    padding: 120px 0 100px;
   }
   .hero h1 {
     font-size: 2rem;
