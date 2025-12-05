@@ -101,3 +101,12 @@ function showNotification(message, type) {
     notification.classList.remove('visible');
   }, 4000);
 }
+
+// FAQ Accordion
+document.querySelectorAll(".faq-question").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const item = btn.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
