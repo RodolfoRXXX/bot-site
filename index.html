@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChatBot Pro - Tu asistente conversacional para negocios</title>
+    <title>notHuman Labs - Tu asistente conversacional para negocios</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -14,88 +14,34 @@
     <!-- Topbar -->
     <nav class="topbar">
       <div class="container">
-        <div class="logo">ChatBot Pro</div>
+        <div class="nav-title">notHuman</div>
         <ul class="nav-links">
           <li><a href="#home">Inicio</a></li>
           <li><a href="#features">Características</a></li>
           <li><a href="#how">Cómo Funciona</a></li>
           <li><a href="#pricing">Planes</a></li>
-          <li><a href="#faqs">FAQ</a></li>
           <li><a href="#contact">Contacto</a></li>
+          <li><a href="#faqs">FAQ</a></li>
         </ul>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="container">
-        <h1>Conectá con tus clientes de forma automática y efectiva</h1>
-        <p>
-          ChatBot Pro es un asistente virtual impulsado por inteligencia artificial que se integra fácilmente en cualquier sitio web. 
-          Responde consultas, comparte información sobre tu negocio y guía a tus visitantes, todo sin intervención humana.
+    <section id="home" class="home">
+      <div id="particles"></div>
+
+      <div class="home-content">
+        <h1>
+          Impulsá tu negocio con<br>
+          <span class="brand-text">Chatbots Inteligentes</span><br>
+          <span id="typed-text"></span><span id="cursor">|</span>
+        </h1>
+
+        <p class="subtitle">
+          Atención automática, respuestas instantáneas y más clientes desde tu sitio web.
         </p>
-        <a href="#demo" style="display: none;" class="cta">Agregalo gratis</a>
 
-        <!-- Bot Mockup -->
-        <div class="bot-demo">
-          <div class="bot-mockup">
-            <!-- Header -->
-            <div class="chat-header">
-              <div class="chat-title">
-                <div class="status-dot"></div>
-                ChatBot Pro
-              </div>
-              <div class="chat-buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-                <span class="btn green"></span>
-              </div>
-            </div>
-
-            <!-- Chat Window -->
-            <div class="chat-window">
-              <div class="chat-bubble user hidden" id="msg1">
-                <div class="text">Hola! 👋</div>
-                <div class="avatar user-avatar">🧑</div>
-              </div>
-
-              <div class="chat-bubble bot hidden" id="msg2">
-                <div class="avatar bot-avatar">🤖</div>
-                <div class="text align-start">¡Hola! Soy el asistente virtual de tu empresa.</div>
-              </div>
-
-              <div class="chat-bubble bot typing hidden" id="msg3">
-                <div class="avatar bot-avatar">🤖</div>
-                <div class="text">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-              </div>
-
-              <div class="chat-bubble bot hidden" id="msg4">
-                <div class="avatar bot-avatar">🤖</div>
-                <div class="text align-start">¿En qué puedo ayudarte hoy?</div>
-              </div>
-
-              <div class="chat-bubble user hidden" id="msg5">
-                <div class="text align-start">Quiero saber más sobre sus servicios</div>
-                <div class="avatar user-avatar">🧑</div>
-              </div>
-            </div>
-
-            <!-- Footer (fake input) -->
-            <div class="chat-footer">
-              <input
-                type="text"
-                class="chat-input"
-                placeholder="Escribe un mensaje..."
-                disabled
-              />
-              <button class="chat-send" disabled>➤</button>
-            </div>
-          </div>
-        </div>
+        <a href="#pricing" class="btn-primary">Ver planes</a>
       </div>
     </section>
 
@@ -321,8 +267,10 @@
         <div class="footer-links">
           <a href="#home">Inicio</a>
           <a href="#features">Características</a>
+          <a href="#how">Cómo Funciona</a>
           <a href="#pricing">Planes</a>
           <a href="#contact">Contacto</a>
+          <a href="#faqs">FAQ</a>
         </div>
         <p>&copy; 2025 ChatBot Pro. Todos los derechos reservados.</p>
       </div>

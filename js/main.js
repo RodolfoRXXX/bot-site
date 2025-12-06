@@ -1,40 +1,37 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const messages = [
-    document.getElementById("msg1"), // user: Hola!
-    document.getElementById("msg2"), // bot: Hola! Soy un chatbot
-    document.getElementById("msg3"), // bot typing
-    document.getElementById("msg4"), // bot: Cómo puedo ayudarte?
-    document.getElementById("msg5"), // user: Quiero información...
-  ];
 
-  function showMessage(index, delay) {
-    setTimeout(() => {
-      // Oculta typing si corresponde
-      if (messages[index - 1] && messages[index - 1].id === "msg3") {
-        messages[index - 1].classList.add("hidden");
-      }
+const frases = [
+  "Respondé consultas automáticamente",
+  "Atendé clientes 24/7 sin esfuerzo",
+  "Aumentá tus ventas desde tu sitio",
+  "Mostrá información precisa al instante"
+];
 
-      // Muestra el mensaje actual
-      messages[index].classList.remove("hidden");
-    }, delay);
+let i = 0, j = 0, borrando = false;
+
+function typing() {
+  const texto = frases[i];
+  const display = document.getElementById("typed-text");
+
+  if (!borrando) {
+    display.textContent = texto.substring(0, j++);
+    if (j > texto.length) {
+      borrando = true;
+      setTimeout(typing, 1300);
+      return;
+    }
+  } else {
+    display.textContent = texto.substring(0, j--);
+    if (j < 0) {
+      borrando = false;
+      i = (i + 1) % frases.length;
+    }
   }
 
-  function startChatSequence() {
-    // 1️⃣ user Hola
-    showMessage(0, 500);
-    // 2️⃣ bot Hola
-    showMessage(1, 2000);
-    // 3️⃣ bot escribiendo...
-    showMessage(2, 3000);
-    // 4️⃣ bot respuesta
-    showMessage(3, 5000);
-    // 5️⃣ user respuesta final
-    showMessage(4, 7000);
-  }
+  setTimeout(typing, borrando ? 40 : 60);
+}
 
-  startChatSequence();
-});
+typing();
 
 // Mostrar / ocultar el botón al hacer scroll
 window.addEventListener("scroll", () => {
@@ -101,6 +98,28 @@ function showNotification(message, type) {
     notification.classList.remove('visible');
   }, 4000);
 }
+
+function crearParticulas() {
+  const container = document.getElementById("particles");
+  for (let i = 0; i < 40; i++) {
+    let p = document.createElement("div");
+    p.classList.add("particle");
+
+    let size = Math.random() * 6 + 4;
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+
+    p.style.left = Math.random() * 100 + "%";
+    p.style.bottom = "-20px";
+
+    p.style.animationDuration = (Math.random() * 6 + 5) + "s";
+    p.style.animationDelay = Math.random() * 3 + "s";
+
+    container.appendChild(p);
+  }
+}
+
+crearParticulas();
 
 // FAQ Accordion
 document.querySelectorAll(".faq-question").forEach(btn => {

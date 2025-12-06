@@ -1,4 +1,7 @@
 
+/* Tipografía (Poppins, similar a la de la imagen) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 /* ==============================
    RESET & BASE STYLES
    ============================== */
@@ -8,7 +11,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
@@ -59,14 +62,14 @@ html {
    TOPBAR (NAVBAR)
    ============================== */
 .topbar {
-  background-color: #007bff;
+  background-color: #031a33;
   color: white;
   padding: 1rem 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 .topbar .container {
   max-width: 1200px;
@@ -76,9 +79,16 @@ html {
   align-items: center;
   padding: 0 2rem;
 }
-.logo {
+.nav-title {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+/* Sección “Labs” en celeste */
+.nav-title::after {
+  content: " Labs";
+  color: #14c9d5;  /* celeste brillante */
 }
 .nav-links {
   display: flex;
@@ -86,255 +96,130 @@ html {
 }
 .nav-links li a {
   color: white;
+  font-size: 0.95rem;
   transition: color 0.3s;
 }
 .nav-links li a:hover {
-  color: #9ee6a0;
+  color: #14c9d5;
 }
 
 /* ==============================
    HERO SECTION
    ============================== */
-.hero {
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: white;
+.home {
+  position: relative;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 0 100px;
-}
-.hero .container {
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0 2rem;
+  color: #ffffff;
+  overflow: hidden;
+
+  /* Fondo degradado más llamativo */
+  background: radial-gradient(circle at center,
+    #0e1a2b 0%,
+    #0b1324 40%,
+    #060912 100%
+  );
 }
-.hero h1 {
-  font-size: 3rem;
+
+.home-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.home h1 {
+  font-size: 3.2rem;
   margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(79,195,247,0.15);
 }
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
+
+.brand-text {
+  color: #4fc3f7;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+#typed-text {
+  color: #4fc3f7;
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(79,195,247,0.4);
+}
+
+#cursor {
+  display: inline-block;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  opacity: 0.85;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-}
-.hero .cta {
-  background-color: white;
-  color: #007bff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: transform 0.3s;
-}
-.hero .cta:hover {
-  transform: scale(1.05);
-}
-.bot-demo {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
-.align-start {
-    text-align: left;
-}
-
-.align-end {
-    text-align: right;
-}
-
-/* ==============================
-   BOT MOCKUP (FINAL VERSION)
-   ============================== */
-.bot-mockup {
-  width: 340px;
-  height: 440px;
-  background-color: #fff;
-  border-radius: 25px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
-  animation: float 6s ease-in-out infinite;
-  font-family: "Segoe UI", sans-serif;
-}
-
-/* Header */
-.chat-header {
-  background-color: #f5f6fa;
-  border-bottom: 1px solid #ddd;
-  padding: 0.6rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.chat-buttons {
-  display: flex;
-  gap: 6px;
-}
-.chat-buttons .btn {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+/* BOTÓN */
+.btn-primary {
+  margin-top: 2rem;
   display: inline-block;
+  background: linear-gradient(90deg, #4fc3f7, #29a5d8);
+  padding: 14px 30px;
+  color: #000;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 18px rgba(79,195,247,0.45);
 }
-.chat-buttons .red { background-color: #ff5f56; }
-.chat-buttons .yellow { background-color: #ffbd2e; }
-.chat-buttons .green { background-color: #27c93f; }
 
-.chat-title {
-  font-weight: bold;
-  font-size: 0.95rem;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(79,195,247,0.7);
 }
-.status-dot {
-  width: 8px;
-  height: 8px;
+
+/* PARTÍCULAS */
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(79,195,247,0.45);
   border-radius: 50%;
-  background-color: #28a745;
+  animation: floatUp linear infinite;
+  filter: blur(1px);
+  box-shadow: 0 0 8px rgba(79,195,247,0.6);
 }
 
-/* Chat window */
-.chat-window {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  flex: 1;
-}
-
-/* Chat Footer (fake input area) */
-.chat-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f5f6fa;
-  border-top: 1px solid #ddd;
-  padding: 0.6rem 0.8rem;
-}
-
-.chat-input {
-  flex: 1;
-  padding: 0.6rem 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  outline: none;
-  background-color: #fff;
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.chat-send {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  font-size: 1rem;
-  margin-left: 0.6rem;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Chat bubbles */
-.chat-bubble {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeInChat 0.8s ease forwards;
-}
-.chat-bubble.user {
-  justify-content: flex-end;
-  animation-delay: 0.5s;
-}
-.chat-bubble.user .text {
-  background-color: #007bff;
-  color: #fff;
-}
-.chat-bubble.bot {
-  justify-content: flex-start;
-}
-.chat-bubble.bot .text {
-  background-color: #e8ebf0;
-  color: #222;
-}
-.chat-bubble.typing {
-  animation-delay: 2s;
-}
-.chat-bubble.reply {
-  animation-delay: 4.5s;
-}
-
-/* Avatars */
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0.5rem;
-}
-.user-avatar {
-  background-color: #007bff;
-  color: #fff;
-}
-.bot-avatar {
-  background-color: #ccc9c9;
-}
-
-/* Text bubbles */
-.text {
-  max-width: 75%;
-  padding: 0.7rem 1rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-}
-
-/* Typing animation */
-.typing .text {
-  background-color: #e8ebf0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-}
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: #555;
-  border-radius: 50%;
-  margin: 0 2px;
-  animation: blink 1.4s infinite both;
-}
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
-
-/* Animations */
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0.2; }
-  40% { opacity: 1; }
-}
-@keyframes fadeInChat {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
 }
 
 /* Hidden state */
@@ -721,14 +606,11 @@ html {
     flex-direction: column;
     gap: 1rem;
   }
+  .nav-title {
+    font-size: 1.35rem;
+  }
   .nav-links {
     gap: 1rem;
-  }
-  .hero {
-    padding: 120px 0 100px;
-  }
-  .hero h1 {
-    font-size: 2rem;
   }
   .steps,
   .contact-info {
@@ -737,10 +619,6 @@ html {
   }
   .pricing-grid {
     grid-template-columns: 1fr;
-  }
-  .bot-mockup {
-    width: 280px;
-    height: 380px;
   }
   .chat-title {
     font-size: 0.85rem;
