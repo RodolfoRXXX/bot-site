@@ -59,25 +59,20 @@ html {
 }
 
 /* ==============================
-   TOPBAR (NAVBAR)
+   NAVBAR
    ============================== */
-.topbar {
-  background-color: #031a33;
-  color: white;
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
+.navbar {
   width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-.topbar .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  background: #031a33;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
 }
 .nav-title {
   font-size: 1.5rem;
@@ -102,6 +97,36 @@ html {
 .nav-links li a:hover {
   color: #14c9d5;
 }
+
+/* HAMBURGER */
+.menu-btn {
+  width: 32px;
+  height: 26px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-btn div {
+  width: 100%;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* Animación X */
+.menu-btn.active div:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.menu-btn.active div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.active div:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
 
 /* ==============================
    HERO SECTION
@@ -589,6 +614,7 @@ html {
   justify-content: center;
   gap: 2rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .footer-links a {
   color: #ccc;
@@ -602,25 +628,119 @@ html {
    RESPONSIVE DESIGN
    ============================== */
 @media (max-width: 768px) {
-  .topbar .container {
-    flex-direction: column;
-    gap: 1rem;
+
+  /* Navbar más compacta */
+  .navbar {
+    padding: 12px 20px;
+    min-width: 0;
   }
+
   .nav-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    min-width: 0;
   }
+
+  /* Reducir menú hamburguesa y hacerlo más visible */
+  .menu-btn {
+    display: flex;
+    width: 28px;
+    height: 22px;
+  }
+
+  .menu-btn div {
+    height: 3px;
+  }
+
+  /* Desplegable responsivo con ancho completo */
   .nav-links {
-    gap: 1rem;
-  }
-  .steps,
-  .contact-info {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(3, 26, 51, 0.95);
+    backdrop-filter: blur(8px);
     flex-direction: column;
-    align-items: center;
+    padding-top: 80px;
+    padding-left: 25px;
+    gap: 1.8rem;
+    transition: right 0.4s ease;
+    z-index: 500;
+    flex-shrink: 1;
+    min-width: 0;
   }
-  .pricing-grid {
-    grid-template-columns: 1fr;
+
+  .nav-links.show {
+    right: 0;
   }
-  .chat-title {
-    font-size: 0.85rem;
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  /* Overlay full screen */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(5px);
+    z-index: 200;
+  }
+  .menu-overlay.active {
+    display: block;
+  }
+
+  /* Hero text más chico */
+  .home h1 {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  /* Botón Volver arriba más chico y más adentro */
+  #scrollToTopBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
+
+/* Móviles chicos (320–480px) */
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .menu-btn {
+    width: 26px;
+    height: 20px;
+  }
+
+  .nav-links {
+    width: 80%;
+  }
+
+  #scrollToTopBtn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .home h1 {
+    font-size: 1.9rem;
+  }
+}
+

@@ -129,3 +129,22 @@ document.querySelectorAll(".faq-question").forEach(btn => {
   });
 });
 
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const overlay = document.getElementById("menuOverlay");
+const links = navLinks.querySelectorAll("a");
+
+function toggleMenu() {
+  menuBtn.classList.toggle("active");
+  navLinks.classList.toggle("show");
+  overlay.classList.toggle("active");
+}
+
+menuBtn.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", toggleMenu);
+
+/* Cierra al hacer click en un link */
+links.forEach(link => {
+  link.addEventListener("click", toggleMenu);
+});
+

@@ -12,10 +12,16 @@
   </head>
   <body>
     <!-- Topbar -->
-    <nav class="topbar">
-      <div class="container">
+    <nav class="navbar">
         <div class="nav-title">notHuman</div>
-        <ul class="nav-links">
+
+        <div class="menu-btn" id="menuBtn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <ul class="nav-links"  id="navLinks">
           <li><a href="#home">Inicio</a></li>
           <li><a href="#features">Características</a></li>
           <li><a href="#how">Cómo Funciona</a></li>
@@ -23,8 +29,10 @@
           <li><a href="#contact">Contacto</a></li>
           <li><a href="#faqs">FAQ</a></li>
         </ul>
-      </div>
     </nav>
+
+    <!-- Fondo borroso -->
+    <div id="menuOverlay" class="menu-overlay"></div>
 
     <!-- Hero Section -->
     <section id="home" class="home">
@@ -272,7 +280,7 @@
           <a href="#contact">Contacto</a>
           <a href="#faqs">FAQ</a>
         </div>
-        <p>&copy; 2025 ChatBot Pro. Todos los derechos reservados.</p>
+        <p>&copy; 2025 notHuman Labs. Todos los derechos reservados.</p>
       </div>
     </footer>
 
